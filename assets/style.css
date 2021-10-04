@@ -1,0 +1,19 @@
+.btn-custom {
+    width: 100%;
+}
+
+.custom-card {
+    background-color: rgb(58, 114, 187);
+    color: white;
+}
+
+.big-card {
+    background-color: wheat;
+}
+
+header {
+    text-align: center;
+    background-color: rgb(58, 114, 187);
+    color: white;
+    height: 100%;
+}
