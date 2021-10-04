@@ -7,4 +7,4 @@ Key features: searches create new buttons and save to localstorage so they persi
 Screenshot:
 <img src="./assets/images/Screen Shot 2021-10-04 at 4.52.00 PM.png">
 
-Link:
+Link:https://garrettlb.github.io/Weather-App/
