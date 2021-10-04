@@ -34,6 +34,44 @@ var wind = $("#wind")
 var humidity = $("#humidity")
 var UV = $("#UV")
 
+var mainIcon = document.querySelector("#mainIcon")
+var card1img = document.querySelector("#card-1-img")
+var card2img = document.querySelector("#card-2-img")
+var card3img = document.querySelector("#card-3-img")
+var card4img = document.querySelector("#card-4-img")
+var card5img = document.querySelector("#card-5-img")
+
+var card1 = $("#card-1")
+var card2 = $("#card-2")
+var card3 = $("#card-3")
+var card4 = $("#card-4")
+var card5 = $("#card-5")
+
+var card1date = $("#card-1-date")
+var card1temp = $("#card-1-temp")
+var card1wind = $("#card-1-wind")
+var card1humidity = $("#card-1-humidity")
+
+var card2date = $("#card-2-date")
+var card2temp = $("#card-2-temp")
+var card2wind = $("#card-2-wind")
+var card2humidity = $("#card-2-humidity")
+
+var card3date = $("#card-3-date")
+var card3temp = $("#card-3-temp")
+var card3wind = $("#card-3-wind")
+var card3humidity = $("#card-3-humidity")
+
+var card4date = $("#card-4-date")
+var card4temp = $("#card-4-temp")
+var card4wind = $("#card-4-wind")
+var card4humidity = $("#card-4-humidity")
+
+var card5date = $("#card-5-date")
+var card5temp = $("#card-5-temp")
+var card5wind = $("#card-5-wind")
+var card5humidity = $("#card-5-humidity")
+
 
 
 
@@ -98,15 +136,74 @@ function DisplayCity(name,lat,lon) {
 
         var dt = data.daily[0].dt
         var moment = window.moment(dt, "X").format("MM/DD/YYYY")
+        var icon = data.current.weather[0].icon
+        console.log(icon)
+
+        var iconUrl = "http://openweathermap.org/img/wn/" + icon + ".png"
+
         
         console.log(data);
 
+        mainIcon.setAttribute("src", iconUrl)
         selectedCity.text(name + " "+ moment)
         temp.text("Temp: " + data.current.temp)
         wind.text("Wind: " + data.current.wind_speed + " MPH")
         humidity.text("Humidity: " + data.current.humidity + " %")
         UV.text("UV Index: " + data.current.uvi)
+
+        Cards(data)
       });
+}
+
+function Cards(data) {
+
+  var moment1 = window.moment(data.daily[1].dt, "X").format("MM/DD/YYYY")
+  var moment2 = window.moment(data.daily[2].dt, "X").format("MM/DD/YYYY")
+  var moment3 = window.moment(data.daily[3].dt, "X").format("MM/DD/YYYY")
+  var moment4 = window.moment(data.daily[4].dt, "X").format("MM/DD/YYYY")
+  var moment5 = window.moment(data.daily[5].dt, "X").format("MM/DD/YYYY")
+
+  var icon1 = data.daily[1].weather[0].icon
+  var icon2 = data.daily[2].weather[0].icon
+  var icon3 = data.daily[3].weather[0].icon
+  var icon4 = data.daily[4].weather[0].icon
+  var icon5 = data.daily[5].weather[0].icon
+
+  var iconUrl1 = "http://openweathermap.org/img/wn/" + icon1 + ".png"
+  var iconUrl2 = "http://openweathermap.org/img/wn/" + icon2 + ".png"
+  var iconUrl3 = "http://openweathermap.org/img/wn/" + icon3 + ".png"
+  var iconUrl4 = "http://openweathermap.org/img/wn/" + icon4 + ".png"
+  var iconUrl5 = "http://openweathermap.org/img/wn/" + icon5 + ".png"
+
+  card1date.text(moment1)
+  card2date.text(moment2)
+  card3date.text(moment3)
+  card4date.text(moment4)
+  card5date.text(moment5)
+
+  card1img.setAttribute("src", iconUrl1)
+  card2img.setAttribute("src", iconUrl2)
+  card3img.setAttribute("src", iconUrl3)
+  card4img.setAttribute("src", iconUrl4)
+  card5img.setAttribute("src", iconUrl5)
+
+  card1temp.text("Temp: " + data.daily[1].temp.day)
+  card2temp.text("Temp: " + data.daily[2].temp.day)
+  card3temp.text("Temp: " + data.daily[3].temp.day)
+  card4temp.text("Temp: " + data.daily[4].temp.day)
+  card5temp.text("Temp: " + data.daily[5].temp.day)
+
+  card1wind.text("Wind: " + data.daily[1].wind_speed + " MPH")
+  card2wind.text("Wind: " + data.daily[2].wind_speed + " MPH")
+  card3wind.text("Wind: " + data.daily[3].wind_speed + " MPH")
+  card4wind.text("Wind: " + data.daily[4].wind_speed + " MPH")
+  card5wind.text("Wind: " + data.daily[5].wind_speed + " MPH")
+
+  card1humidity.text("Humidity: " + data.daily[1].humidity + " %")
+  card2humidity.text("Humidity: " + data.daily[2].humidity + " %")
+  card3humidity.text("Humidity: " + data.daily[3].humidity + " %")
+  card4humidity.text("Humidity: " + data.daily[4].humidity + " %")
+  card5humidity.text("Humidity: " + data.daily[5].humidity + " %")
 }
 
 function ExistingSearch(event) {
