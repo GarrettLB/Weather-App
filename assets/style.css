@@ -1,5 +1,6 @@
 .btn-custom {
     width: 100%;
+    padding-right: 5%;
 }
 
 .custom-card {
@@ -21,5 +22,8 @@ header {
 @media screen and (max-width: 600px) {
     #cardHolder {
         flex-direction: column;
+    }
+    #maindisplay {
+        margin-right: 2%;
     }
 }
