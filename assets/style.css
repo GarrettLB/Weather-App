@@ -17,3 +17,9 @@ header {
     color: white;
     height: 100%;
 }
+
+@media screen and (max-width: 600px) {
+    #cardHolder {
+        flex-direction: column;
+    }
+}
